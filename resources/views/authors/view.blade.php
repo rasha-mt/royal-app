@@ -82,12 +82,12 @@
                                         <tr>
                                             <td>{{ $book['title'] }}</td>
                                             <td>{{ $book['description'] }}</td>
-                                            <td></td>
+                                            <td>{{ Carbon\Carbon::parse($book['release_date'])->toDateString() }}</td>
                                             <td>{{$book['number_of_pages'] }}</td>
 
                                             <td style="display: flex">
-                                                <a class="btn btn-danger m-2 delete" href="#" data-toggle="modal"
-                                                   data-target="#deleteModal" data-bookId="{{$book['id'] }}">
+                                                <a class="btn btn-danger m-2 delete-book" href="#" data-toggle="modal"
+                                                    data-bookId="{{ $book['id'] }}">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
@@ -109,7 +109,6 @@
                 @include('authors.delete-modal')
             </div>
 
-        </div>
 
     </div>
 

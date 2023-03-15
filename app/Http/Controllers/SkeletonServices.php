@@ -95,14 +95,14 @@ class SkeletonServices extends Controller
         $data = [
             "author"          =>
                 [
-                    "id" => $data['author_id']
+                    "id" => (int) $data['author_id']
                 ],
             "title"           => $data['title'],
-            "release_date"    => now(),
+            "release_date"    => now()->toDateTimeString(),
             "description"     => $data['description'],
             "isbn"            => "test",
             "format"          => "audio",
-            "number_of_pages" => $data['pages_number']
+            "number_of_pages" => (int) $data['pages_number']
         ];
 
         try {
@@ -119,10 +119,10 @@ class SkeletonServices extends Controller
             ];
 
         } catch (\Exception $e) {
-            dd($e);
+
             return [
                 "code"    => 403,
-                "message" => "Error "
+                "message" => "Failed to Add Book "
             ];
         }
     }

@@ -36,6 +36,6 @@ Route::middleware(IsAuthorized::class)->group(function () {
 
     Route::get('books/create', [BookController::class, 'create'])->name('books.create');
     Route::post('books', [BookController::class, 'store']);
-    Route::delete('books/{bookId}', [BookController::class, 'destroy'])->name('books.destroy');
+    Route::delete('books', [BookController::class, 'destroy'])->name('books.destroy');
     Route::post('logout', [BookController::class, 'logout'])->name('logout');
 });

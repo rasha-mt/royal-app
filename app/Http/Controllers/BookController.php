@@ -26,17 +26,17 @@ class BookController extends SkeletonServices
             'author_id'    => 'required',
         ]);
 
-        dd($this->createBook($data));
+        $response = $this->createBook($data);
+        if ($response['code'] == 200) {
+            return redirect()->route('books.create')->with('success', 'User Created Successfully.');
+        }
+        return redirect()->back()->withInput()->with('error', $response['message']);
     }
 
     public function destroy(Request $request)
     {
-        // $response = $this->removeBook($request->id);
+        $this->removeBook($request->book_id);
 
-        // if ($response['code'] == 200) {
-        return back()->with('success', 'Book Deleted Successfully!.');
-
-//        }
-//        return redirect()->back()->with('error', 'error happened');
+        return redirect()->back();
     }
 }

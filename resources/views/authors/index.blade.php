@@ -40,7 +40,7 @@
                                 <tr>
                                     <td>{{ $author['first_name'] }}</td>
                                     <td>{{ $author['last_name'] }}</td>
-                                    <td>{{ $author['birthday'] }}</td>
+                                    <td>{{ Carbon\Carbon::parse($author['birthday'])->toDateString() }}</td>
                                     <td>{{ $author['gender'] }}</td>
 
                                     <td style="display: flex">
