@@ -9,7 +9,8 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-
+        <!-- Sidebar -->
+        @include('common.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
